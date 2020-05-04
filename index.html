@@ -23,7 +23,8 @@
 
 $("#button").on("click", function(event) {
 var zips = $("#input").val().trim();
-var formattedZips = zips.replace(/(\r\n|\n|\r|\s)/gm,",");
+var rmQuotes = zips.replace(/"/gm,"");
+var formattedZips = rmQuotes.replace(/(\r\n|\n|\r|\s)/gm,",");
 $("#results").prepend(formattedZips);
 });
 

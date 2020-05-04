@@ -13,9 +13,12 @@
 <div class="container">
 <textarea class="form-control my-3" id="input" placeholder="Paste zip codes here" rows="5"></textarea> 
 <div class="text-center">
-<button class="btn btn-large btn-dark text-center mx-auto" id="button">Format Zip Codes</button> 
+<button class="btn btn-large btn-dark" id="button">Format Zip Codes</button> 
 </div>
 <div class="border rounded my-3 p-3" id="results"></div>
+<div class="text-center">
+<button class="btn btn-large btn-dark" id="clear">Clear</button> 
+</div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -26,6 +29,10 @@ var zips = $("#input").val().trim();
 var rmQuotes = zips.replace(/"/gm,"");
 var formattedZips = rmQuotes.replace(/(\r\n|\n|\r|\s)/gm,",");
 $("#results").prepend(formattedZips);
+});
+
+$("#clear").on("click", function(event) {
+$("#results").empty();   
 });
 
 </script>
